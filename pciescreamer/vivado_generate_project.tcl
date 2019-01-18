@@ -693,7 +693,7 @@ proc cr_bd_pcileech_vfifo { parentCell } {
   if { $bCheckIPs == 1 } {
      set list_check_ips "\ 
   xilinx.com:ip:axi_vfifo_ctrl:2.0\
-  xilinx.com:ip:mig_7series:4.1\
+  xilinx.com:ip:mig_7series:4.2\
   "
 
    set list_ips_missing ""
@@ -739,7 +739,7 @@ proc write_mig_file_pcileech_vfifo_mig_7series_0_0 { str_mig_prj_filepath } {
    puts $mig_prj_file {    <LowPower_En>ON</LowPower_En>}
    puts $mig_prj_file {    <XADC_En>Enabled</XADC_En>}
    puts $mig_prj_file {    <TargetFPGA>xc7a35t-fgg484/-2</TargetFPGA>}
-   puts $mig_prj_file {    <Version>4.1</Version>}
+   puts $mig_prj_file {    <Version>4.2</Version>}
    puts $mig_prj_file {    <SystemClock>No Buffer</SystemClock>}
    puts $mig_prj_file {    <ReferenceClock>No Buffer</ReferenceClock>}
    puts $mig_prj_file {    <SysResetPolarity>ACTIVE HIGH</SysResetPolarity>}
@@ -939,7 +939,7 @@ proc write_mig_file_pcileech_vfifo_mig_7series_0_0 { str_mig_prj_filepath } {
  ] $axi_vfifo_ctrl_0
 
   # Create instance: mig_7series_0, and set properties
-  set mig_7series_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mig_7series:4.1 mig_7series_0 ]
+  set mig_7series_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mig_7series:4.2 mig_7series_0 ]
 
   # Generate the PRJ File for MIG
   set str_mig_folder [get_property IP_DIR [ get_ips [ get_property CONFIG.Component_Name $mig_7series_0 ] ] ]
@@ -1034,8 +1034,6 @@ set_property -name "name" -value "synth_1" -objects $obj
 set_property -name "needs_refresh" -value "0" -objects $obj
 set_property -name "part" -value "xc7a35tfgg484-2" -objects $obj
 set_property -name "srcset" -value "sources_1" -objects $obj
-set_property -name "incremental_checkpoint" -value "" -objects $obj
-set_property -name "incremental_checkpoint.more_options" -value "" -objects $obj
 set_property -name "include_in_archive" -value "1" -objects $obj
 set_property -name "gen_full_bitstream" -value "1" -objects $obj
 set_property -name "strategy" -value "Vivado Synthesis Defaults" -objects $obj
